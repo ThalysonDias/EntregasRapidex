@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    
+    <title>Rapidex | Cargas Expressas</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="sortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,700|Oswald:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="~/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="~/css/aos.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" media="screen" href="~/css/vendor.min.css">
+    <link rel="stylesheet" media="screen" id="main-styles" href="~/css/theme.min.css">
+
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+    <!--Spinner de carregamento inicial das página-->
+    <div id="overlayer"></div>
+    <div class="loader">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <div class="site-wrap" id="home-section">
+        <div class="site-mobile-menu site-navbar-target">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+    </div>   
+    <!--Fim do spinner de carregamento inicial das página-->
+
+    <!--Cabeçalho-->
+    <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+        <div class="container">
+            <div class="row align-items-center position-relative">
+                <div class="site-logo">
+                    <a asp-controller="Home" asp-action="Index" title="Rapidex: Fretes Rapidos, Fretes Locais e Fretes Aereos.">
+                        <img src="~/images/logo%20th%20(2).png" alt="Rapidex: Fretes Rapidos, Locais e Aereos.">
+                    </a>
+                </div>
+                <div class="col-12">
+                    <nav class="site-navigation text-right ml-auto " role="navigation">
+                        <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
+                            <li>
+                                <a href="#services-section" class="nav-link"></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="toggle-button d-inline-block d-lg-none">
+                    <a href="#" class="site-menu-toggle py-5 js-menu-toggle text-black"><span class="icon-menu h3"></span></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--Fim do cabeçalho-->
+
+    <!--*****Conteúdo da página*****-->
+    <div class="ftco-blocks-cover-1">
+        <div class="page-title-overlap bg-dark pt-4">
+            <div class="container d-lg-flex justify-content-between py-2 py-lg-3">
+                <div class="order-lg-1 pr-lg-4 text-center text-lg-left">
+                    <h1 class="h3 text-light mb-0">Faça login com seu e-mail</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container pb-5 mb-2 mb-md-3">
+            <div class="row">
+                <section class="col-lg-8">
+                    <form asp-action="Buscar" method="GET">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="account-fn">E-mail</label>
+                                    <input class="form-control" type="text" id="account-fn" placeholder="Insira seu e-mail" name="dado" value="">
+                                    <label>Utilizar inicialmente o cliente lsantiago@cliente.com.br | senha: 1234 ou criar um novo</label>
+                                </div>
+                            </div>  
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="account-pass">Senha</label>
+                                    <div class="password-toggle">
+                                        <input class="form-control" type="password" id="account-pass" placeholder="Insira sua senha">
+                                        <label class="password-toggle-btn">
+                                            <input class="custom-control-input" type="checkbox">
+                                            <i class="czi-eye password-toggle-indicator"></i><span class="sr-only">Ver Senha</span>
+                                        </label>
+                                    </div>
+                                    <h6>Esqueceu sua senha?</h6>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-12" asp-controller="CadastroCliente" asp-action="Index">
+                                <div class="d-flex flex-wrap justify-content-between align-items-center">
+                                    <input class="btn btn-primary mt-3 mt-sm-0" type="submit" asp-controller="CadastroCliente" asp-action="Index" value="Buscar">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <h1></h1>
+                                <hr class="mt-2 mb-3">
+                                <div class="d-flex flex-wrap justify-content-between align-items-center">
+                                    <h4>...ou  cadastre-se</h4>
+                                    <a class="btn btn-primary mt-3 mt-sm-0" type="button" asp-controller="CadastroCliente" asp-action="FormularioCadastro">Cadastrar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div> 
+    </div>
+    <!--*****Fim do conteúdo da página*****-->   
+        
+    <!--Javascript-->   
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!-- Vendor Styles including: Font Icons, Plugins, etc.-->
+    <script src="~/js/vendor.min.js"></script>
+    <script src="~/js/theme.min.js"></script>
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/jquery.sticky.js"></script>
+    <script src="~/js/jquery.waypoints.min.js"></script>
+    <script src="~/js/jquery.animateNumber.min.js"></script>
+    <script src="~/js/jquery.fancybox.min.js"></script>
+    <script src="~/js/jquery.easing.1.3.js"></script>
+    <script src="~/js/aos.js"></script>
+    <script src="~/js/main.js"></script>
+    <!--Fim do javascript-->   
+
+</body>
+
+</html>
+

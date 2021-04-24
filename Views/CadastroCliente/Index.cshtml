@@ -1,0 +1,241 @@
+@model IEnumerable<AppWeb.Models.CadastroClienteViewModel>
+@{
+    ViewData["Title"] = "Dados Cadastrais";
+}
+
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    
+    <title>Rapidex | Cargas Expressas</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="sortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,700|Oswald:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="~/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="~/css/aos.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" media="screen" href="~/css/vendor.min.css">
+    <link rel="stylesheet" media="screen" id="main-styles" href="~/css/theme.min.css">
+
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+    <!--Spinner de carregamento inicial das página-->
+    <div id="overlayer"></div>
+    <div class="loader">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <div class="site-wrap" id="home-section">
+        <div class="site-mobile-menu site-navbar-target">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+    </div>   
+    <!--Fim do spinner de carregamento inicial das página-->
+
+    <!--Cabeçalho-->    
+    <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+        <div class="container">
+            <div class="row align-items-center position-relative">
+                <div class="site-logo">
+                    <a asp-controller="Home" asp-action="Index" title="Rapidex: Fretes Rapidos, Fretes Locais e Fretes Aereos.">
+                        <img src="~/images/logo%20th%20(2).png" alt="Rapidex: Fretes Rapidos, Locais e Aereos.">
+                    </a>
+                </div>
+                <div class="col-12">
+                    <nav class="site-navigation text-right ml-auto " role="navigation">
+                        <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
+                            <li><a href="#services-section" class="nav-link"></a></li>
+                            <nav class="cd-main-nav js-main-nav">
+                                <ul class="cd-main-nav__list js-signin-modal-trigger">
+                                    <li>
+                                        <a class="cd-main-nav__item cd-main-nav__item--signup" asp-controller="Home" asp-action="Index" data-signin="signup">Sair</a>
+                                    </li>    
+                                </ul>
+                           </nav>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="toggle-button d-inline-block d-lg-none">
+                    <a href="#" class="site-menu-toggle py-5 js-menu-toggle text-black"><span class="icon-menu h3"></span></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--Fim do cabeçalho-->
+
+    <!--*****Conteúdo da página*****-->
+    <div class="ftco-blocks-cover-1">
+
+        <!--Título da página-->
+        <div class="page-title-overlap bg-dark pt-4">
+            <div class="container d-lg-flex justify-content-between py-2 py-lg-3">     
+                <div class="order-lg-1 pr-lg-4 text-center text-lg-left">
+                    <h1 class="h3 text-light mb-0">Informações da Conta</h1>
+                </div>
+            </div>
+        </div>
+        <!--Fim do título da página-->
+
+        <!--Bloco de formulários-->
+        <div class="container pb-5 mb-2 mb-md-3">
+            <div class="row">
+
+                <!--Formulário lateral com acesso aos pedidos, informações de conta e métodos de pagamento-->
+                <aside class="col-lg-4 pt-4 pt-lg-0">
+                    <div class="cz-sidebar-static rounded-lg box-shadow-lg px-0 pb-0 mb-5 mb-lg-0">
+                        <div class="px-4 mb-4">
+                            <div class="media align-items-center">
+                                <div class="img-thumbnail rounded-circle position-relative" style="width: 6.375rem;">
+                                    <span class="badge badge-warning" data-toggle="tooltip" title="Reward points"></span>
+                                    <img class="rounded-circle" src="~/images/icone-avatar-conta-cliente.png" alt="Cliente">
+                                </div>
+                                <div class="media-body pl-3">
+                                    @foreach (var item in Model)
+                                    {
+                                    
+                                    <h3 class="font-size-base mb-0">@item.NomeCliente</h3>
+                                    
+                                    
+                                    <span class="text-accent font-size-sm">@item.EmailCliente</span>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-secondary px-4 py-3">
+                            <h3 class="font-size-sm mb-0 text-muted">Controle de Carga</h3>
+                        </div>
+                        @* <ul class="list-unstyled mb-0">
+                            <li class="border-bottom mb-0">
+                                <a class="nav-link-style d-flex align-items-center px-4 py-3" asp-controller="HistoricoPedidos" asp-action="Index"> *@
+                                     
+
+                        <form asp-action="Listar" method="GET">
+                             @foreach (var item in Model)
+                             {
+                            <div class="form-group d-flex">
+                                <input type="text" class="form-control" name="dado" value="@item.IdCliente" hidden>
+                                <input class="btn btn-primary text-white px-4" input type="submit" value="Meus Pedidos" asp-controller="CadastroCliente" asp-action="Pedidos">
+                            </div>
+                            }
+                        </form>
+                         <form asp-action="Listar" method="GET">
+                             @foreach (var item in Model)
+                             {
+                            <div class="form-group d-flex">
+                                <input type="text" class="form-control" name="dado" value="@item.IdCliente" hidden>
+                                <input class="btn btn-primary text-white px-4" input type="submit" value="Meus Cartões" asp-controller="CadastroCliente" asp-action="Cartoes">
+                            </div>
+                            }
+                        </form>
+                    </div>
+                </aside>
+                <!--Fim do formulário lateral com acesso aos pedidos, informações de conta e métodos de pagamento-->
+                
+                <!--Formulário principal com os dados cadastrais-->
+                <section class="col-lg-8">
+                    @foreach (var item in Model)
+                    {
+                    <form>
+                        <div class="bg-secondary rounded-lg p-4 mb-4">
+                            <div class="media align-items-center"><img src="~/images/icone-avatar-conta-cliente.png" width="90" alt="Cliente">
+                                <div class="media-body pl-3">
+                                    <div class="file btn btn-lg btn-primary">Trocar Foto
+							                          <input type="file" name="file"/>
+						                        </div>
+                                    <div class="p mb-0 font-size-ms text-muted">Carregar imagem JPG, GIF ou PNG. 300 x 300 necessários..</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="account-fn">Nome</label>
+                                    <input class="form-control" type="text" name="nome" id="account-fn" required value="@item.NomeCliente">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="account-ln">CPF</label>
+                                    <input class="form-control" type="text" id="account-ln" required disabled value="@item.CPFCliente">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="account-email">Email</label>
+                                    <input class="form-control" type="email" id="account-email" disabled value="@item.EmailCliente">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="account-phone">Telefone</label>
+                                    <input class="form-control" type="text" name="telefone" id="account-phone" required value="@item.TelefoneCliente">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="account-pass">Nova Senha</label>
+                                    <div class="password-toggle">
+                                        <input class="form-control" type="password" name="senha"id="account-pass" value="@item.SenhaCliente" required>
+                                        <label class="password-toggle-btn">
+                                            <input class="custom-control-input" type="checkbox">
+                                            <i class="czi-eye password-toggle-indicator"></i><span class="sr-only">Ver Senha</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="mt-2 mb-3">
+                            
+                            <div>
+                                
+                                <input name="id" value="@item.IdCliente" hidden>
+                                <input class="btn btn-primary mt-3 mt-sm-0" type="submit" value="Atualizar Dados" asp-controller="Pedido" asp-action="Inclusao">
+                            </div>
+                        </div>
+                    </form>
+                    }
+                </section>
+                <!--Fim do dormulário principal com os dados cadastrais-->
+
+            </div>
+        </div>
+        <!--Fim do bloco de formulários-->
+
+    </div>
+    <!-- ***** Fim do contúdo da página ***** -->
+
+    <!--Javascript-->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="~/js/vendor.min.js"></script>
+    <script src="~/js/theme.min.js"></script>
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/jquery.sticky.js"></script>
+    <script src="~/js/jquery.waypoints.min.js"></script>
+    <script src="~/js/jquery.animateNumber.min.js"></script>
+    <script src="~/js/jquery.fancybox.min.js"></script>
+    <script src="~/js/jquery.easing.1.3.js"></script>
+    <script src="~/js/aos.js"></script>
+    <script src="~/js/main.js"></script>
+    <!--Fim do javascript-->
+
+</body>
+
+</html>

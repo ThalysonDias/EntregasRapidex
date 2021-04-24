@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+
+    <title>Rapidex | Cargas Expressas</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="sortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,700|Oswald:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="~/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="~/css/aos.css">
+    <link rel="stylesheet" href="~/css/style.css">
+
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+    <!--Cabeçalho-->
+    <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+        <div class="container">
+            <div class="row align-items-center position-relative">
+                <div class="site-logo">
+                    <a asp-controller="Home" asp-action="Index" title="Rapidex: Fretes Rapidos, Fretes Locais e Fretes Aereos.">
+                        <img src="~/images/logo%20th%20(2).png" alt="Rapidex: Fretes Rapidos, Locais e Aereos.">
+                    </a>     
+                </div>     
+                <div class="col-12">
+                    <nav class="site-navigation text-right ml-auto " role="navigation">
+                        <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
+                              <li><a asp-controller="FreteRapido" asp-action="Index">Frete Rápido</a></li>
+                              <li><a asp-controller="FreteNacional" asp-action="Index">Frete Nacional</a></li>              
+                        </ul>   
+                    </nav>
+                </div>
+                <div class="toggle-button d-inline-block d-lg-none">
+                    <a href="#" class="site-menu-toggle py-5 js-menu-toggle text-black">
+                        <span class="icon-menu h3"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--Fim do cabeçalho-->
+
+    <!--*****Conteúdo da página*****-->
+    <div class="ftco-blocks-cover-1">
+        <div class="block__73694 site-section border-top" id="why-us-section">
+            <div class="container">
+                <div class="row d-flex no-gutters align-items-stretch">
+                    <div class="container">
+                        <h1>Cálculo de frete</h1>
+                        <h4>Frete Estadual - Valor Mínimo: R$ (RECUPERAR DO BANCO)</h4>
+
+                        <!--Bloco de formuários-->
+                        <div class="row">
+                            <?= $html; ?>
+                        </div>
+                        <form action="./?frete" method="post">
+                            <div class="row">
+                                <div class="col-sm-6 form-group">
+                                    <label>CEP Origem</label>
+                                    <input name="cep-origem" class="form-control" required>
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                    <label>CEP Destino</label>
+                                    <input name="cep-destino" class="form-control" required>
+                                </div>
+                            </div>
+                            <div id="campos" data-campos="1">
+                                <div class="row">
+                                    <div class="container">
+                                        <label>Dados do produto</label>
+                                    </div>
+                                    <div class="col-sm-1 form-group">
+                                        <label>Quantidade</label>
+                                        <input name="produto[1][qtd]" class="form-control" type="number" required>
+                                    </div>
+                                    <div class="col-sm-2 form-group">
+                                        <label>Peso (kg)</label>
+                                        <input name="produto[1][peso]" class="form-control" required>
+                                    </div>
+                                    <div class="col-sm-3 form-group">
+                                        <label>Altura (cm)</label>
+                                        <input name="produto[1][altura]" class="form-control" type="number" required>
+                                    </div>
+                                    <div class="col-sm-3 form-group">
+                                        <label>Largura (cm)</label>
+                                        <input name="produto[1][largura]" class="form-control" type="number" required>
+                                    </div>
+                                    <div class="col-sm-3 form-group">
+                                        <label>Comprimento (cm)</label>
+                                        <input name="produto[1][comprimento]" class="form-control" type="number" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h2>Total - RECUPERAR DO BANCO</h2>
+                            </div>
+                            <button class="pull-right btn btn-primary" asp-controller="FreteRapido" asp-action="Math">Calcular Frete</button>
+                            <button class="pull-left btn btn-success" asp-controller="CadastroCliente" asp-action="Login">Realizar Pedido</button>
+                        </form>
+                        <!--Fim do bloco de formulários-->
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--*****Fim Conteúdo da página*****-->
+
+    <!--Javascript-->
+    <script type="text/javascript"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="~/login-signup-modal-master/js/placeholders.min.js"></script> 
+    <script src="~/login-signup-modal-master/js/main-modal.js"></script>
+    <script src="~/js/vendor.min.js"></script>
+    <script src="~/js/theme.min.js"></script>
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/jquery.sticky.js"></script>
+    <script src="~/js/jquery.waypoints.min.js"></script>
+    <script src="~/js/jquery.animateNumber.min.js"></script>
+    <script src="~/js/jquery.fancybox.min.js"></script>
+    <script src="~/js/jquery.easing.1.3.js"></script>
+    <script src="~/js/aos.js"></script>
+    <script src="~/js/main.js"></script>
+    <!--Fim do javascript-->
+   
+</body>
+
+</html>

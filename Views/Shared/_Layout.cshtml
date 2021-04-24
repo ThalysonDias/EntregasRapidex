@@ -1,0 +1,56 @@
+﻿@RenderBody()
+@RenderSection("Scripts", required: false)
+
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,700|Oswald:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="~/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="~/css/aos.css">
+    <link rel="stylesheet" href="css/style.css">
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-4 ml-auto">
+                        <div class="col-md-7">
+                            <h2 class="footer-heading mb-4">Serviços</h2>                            
+                            <ul class="list-unstyled">
+                                <li><a asp-controller="Frete" asp-action="FreteRapido">Local</a></li>
+                                <li><a asp-controller="Frete" asp-action="FreteEstadual">Estadual</a></li>
+                                <li><a asp-controller="Frete" asp-action="FreteNacional">Nacional</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 ml-auto">
+                        <h2 class="footer-heading mb-4">Dados do Projeto</h2>
+                        <ul class="list-unstyled">
+                            <li><a asp-controller="Home" asp-action="DadosProjeto">Criadores</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 ml-auto">
+                <h2 class="footer-heading mb-4">Siga Rapidex</h2>
+                <a href="https://github.com/ThalysonDias/EntregasRapidex" class="pl-3 pr-3"><span class="icon-github"></span></a>
+                <a href="https://www.instagram.com/thdek_music/?hl=pt-br" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                <a href="https://www.linkedin.com/in/leonardo-santiago-477043146/" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+            </div>
+        </div>
+        <div class="row pt-5 mt-5 text-center">
+            <div class="col-md-12">
+                <div class="border-top pt-5">
+                    <p class="copyright">Copyright &copy;
+                        <script>document.write(new Date().getFullYear());</script> Todos os direitos reservado à 
+                        <a asp-controller="Home" asp-action="Index"> Rapidex</a>. Rapidex Transportadora S.A. Inscrição estadual nº 664.183.937.999 CNPJ/MF sob o nº 82.100.776/0001-48. Rua Amador Bueno, nº 389, Santo Amaro, CEP 04752-901, São Paulo - SP.
+                    </p>
+                </div>
+            </div>
+        </div>
+      </div>
+</footer>
+
